@@ -76,9 +76,7 @@ public class Controller implements ActionListener{
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        String selectedType = (String)view.listBoxType.getSelectedItem().toString();
-        String selectedUse = (String)view.listBoxUse.getSelectedItem().toString();
-        String selectedCountry = (String)view.listBoxCountry.getSelectedItem().toString();
+
         
         if(e.getSource() == view.btnList){
             cleanTable();
@@ -125,7 +123,57 @@ public class Controller implements ActionListener{
            listItems(view.table);
         }
         if(e.getSource() == view.btnFilter){
-            System.out.println(qs.filterDB(selectedType, selectedUse, selectedCountry));
+        String type = (String)view.listBoxType.getSelectedItem().toString();
+        String use = (String)view.listBoxUse.getSelectedItem().toString();
+        String country = (String)view.listBoxCountry.getSelectedItem().toString();
+        String trial="";
+        
+        
+        if(!type.equals("all") && use.equals("all") && country.equals("all")){
+            trial="You have selected the type option";
+            System.out.println(trial);
+            cleanTable();
+            listItems(view.table, qs.filterDB(type, use, country), type);
+            
+        }else if(type.equals("all") && !use.equals("all") && country.equals("all")){
+            trial="You have selected the use option";
+            System.out.println(trial);
+            cleanTable();
+            listItems(view.table, qs.filterDB(type, use, country), use);
+                        
+        }else if(type.equals("all") && use.equals("all") && !country.equals("all")){
+            trial="You have selected the country option";
+            System.out.println(trial);
+            cleanTable();
+            listItems(view.table, qs.filterDB(type, use, country), country);
+            
+        }else if(!type.equals("all") && !use.equals("all") && country.equals("all")){
+            trial="You have selected the type and the use option";
+            System.out.println(trial);
+            cleanTable();
+            listItems(view.table, qs.filterDB(type, use, country), type, use);       
+            
+        }else if(type.equals("all") && !use.equals("all") && !country.equals("all")){
+            trial="You have selected the use and the country option";
+            System.out.println(trial);
+            cleanTable();
+            listItems(view.table, qs.filterDB(type, use, country), use, country);  
+            
+        }else if(!type.equals("all") && use.equals("all") && !country.equals("all")){
+            trial="You have selected the type and the country option";
+            System.out.println(trial);
+            cleanTable();
+            listItems(view.table, qs.filterDB(type, use, country), type, country);  
+            
+        }else{
+            trial="You have selected the all option";
+            System.out.println(trial);
+            cleanTable();
+            listItems(view.table, qs.filterDB(type, use, country), type, use, country);  
+            
+        }
+        
+
         }
     }
     
@@ -221,4 +269,61 @@ public class Controller implements ActionListener{
         view.table.setModel(model);
     }
     
+    public void listItems(JTable table, String sql, String query1){
+        
+        model=(DefaultTableModel) table.getModel();
+        List<SpaceShip> spaceships= dao.ListItems(sql, query1);
+        Object[] obj = new Object[8];
+        for(int i=0; i<spaceships.size();i++){
+            obj[0] = spaceships.get(i).getId();
+            obj[1] = spaceships.get(i).getName();
+            obj[2] = spaceships.get(i).getType();
+            obj[3] = spaceships.get(i).getThrust();
+            obj[4] = spaceships.get(i).getWeight();
+            obj[5] = spaceships.get(i).getUse();
+            obj[6] = spaceships.get(i).getCountry();
+            obj[7] = spaceships.get(i).getDate();
+            model.addRow(obj);
+        }
+        
+        view.table.setModel(model);
+    }
+    public void listItems(JTable table, String sql, String query1, String query2){
+        
+        model=(DefaultTableModel) table.getModel();
+        List<SpaceShip> spaceships= dao.ListItems(sql, query1, query2);
+        Object[] obj = new Object[8];
+        for(int i=0; i<spaceships.size();i++){
+            obj[0] = spaceships.get(i).getId();
+            obj[1] = spaceships.get(i).getName();
+            obj[2] = spaceships.get(i).getType();
+            obj[3] = spaceships.get(i).getThrust();
+            obj[4] = spaceships.get(i).getWeight();
+            obj[5] = spaceships.get(i).getUse();
+            obj[6] = spaceships.get(i).getCountry();
+            obj[7] = spaceships.get(i).getDate();
+            model.addRow(obj);
+        }
+        
+        view.table.setModel(model);
+    }
+    public void listItems(JTable table, String sql, String query1, String query2, String query3){
+        
+        model=(DefaultTableModel) table.getModel();
+        List<SpaceShip> spaceships= dao.ListItems(sql, query1, query2, query3);
+        Object[] obj = new Object[8];
+        for(int i=0; i<spaceships.size();i++){
+            obj[0] = spaceships.get(i).getId();
+            obj[1] = spaceships.get(i).getName();
+            obj[2] = spaceships.get(i).getType();
+            obj[3] = spaceships.get(i).getThrust();
+            obj[4] = spaceships.get(i).getWeight();
+            obj[5] = spaceships.get(i).getUse();
+            obj[6] = spaceships.get(i).getCountry();
+            obj[7] = spaceships.get(i).getDate();
+            model.addRow(obj);
+        }
+        
+        view.table.setModel(model);
+    }
 }
