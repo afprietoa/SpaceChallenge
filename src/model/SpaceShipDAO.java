@@ -18,7 +18,7 @@ public class SpaceShipDAO {
     PreparedStatement ps;
     ResultSet rs;
     
-    public List ListItems(){
+    public List listItems(){
         List<SpaceShip> spaceships;
         spaceships = new ArrayList<>();
         String sql = "SELECT * FROM spacecrafts";
@@ -56,7 +56,7 @@ public class SpaceShipDAO {
         
     }
     
-    public List ListItems(String sql, String query){
+    public List listItems(String sql, String query){
         List<SpaceShip> spaceships;
         spaceships = new ArrayList<>();
        try{
@@ -95,7 +95,7 @@ public class SpaceShipDAO {
         
     }
     
-    public List ListItems(String sql, String query1, String query2){
+    public List listItems(String sql, String query1, String query2){
         List<SpaceShip> spaceships;
         spaceships = new ArrayList<>();
        try{
@@ -135,7 +135,7 @@ public class SpaceShipDAO {
         
     }
  
-    public List ListItems(String sql, String query1, String query2, String query3){
+    public List listItems(String sql, String query1, String query2, String query3){
         List<SpaceShip> spaceships;
         spaceships = new ArrayList<>();
        try{

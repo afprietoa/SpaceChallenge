@@ -252,7 +252,7 @@ public class Controller implements ActionListener{
     public void listItems(JTable table){
         
         model=(DefaultTableModel) table.getModel();
-        List<SpaceShip> spaceships= dao.ListItems();
+        List<SpaceShip> spaceships= dao.listItems();
         Object[] obj = new Object[8];
         for(int i=0; i<spaceships.size();i++){
             obj[0] = spaceships.get(i).getId();
@@ -272,7 +272,7 @@ public class Controller implements ActionListener{
     public void listItems(JTable table, String sql, String query1){
         
         model=(DefaultTableModel) table.getModel();
-        List<SpaceShip> spaceships= dao.ListItems(sql, query1);
+        List<SpaceShip> spaceships= dao.listItems(sql, query1);
         Object[] obj = new Object[8];
         for(int i=0; i<spaceships.size();i++){
             obj[0] = spaceships.get(i).getId();
@@ -291,7 +291,7 @@ public class Controller implements ActionListener{
     public void listItems(JTable table, String sql, String query1, String query2){
         
         model=(DefaultTableModel) table.getModel();
-        List<SpaceShip> spaceships= dao.ListItems(sql, query1, query2);
+        List<SpaceShip> spaceships= dao.listItems(sql, query1, query2);
         Object[] obj = new Object[8];
         for(int i=0; i<spaceships.size();i++){
             obj[0] = spaceships.get(i).getId();
@@ -310,7 +310,7 @@ public class Controller implements ActionListener{
     public void listItems(JTable table, String sql, String query1, String query2, String query3){
         
         model=(DefaultTableModel) table.getModel();
-        List<SpaceShip> spaceships= dao.ListItems(sql, query1, query2, query3);
+        List<SpaceShip> spaceships= dao.listItems(sql, query1, query2, query3);
         Object[] obj = new Object[8];
         for(int i=0; i<spaceships.size();i++){
             obj[0] = spaceships.get(i).getId();

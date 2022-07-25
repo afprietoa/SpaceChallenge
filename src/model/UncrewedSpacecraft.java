@@ -9,10 +9,34 @@ package model;
  * @author afprietoa
  */
 public class UncrewedSpacecraft extends SpaceShip {
+    
+    String data;
 
+    public UncrewedSpacecraft(String data) {
+        this.data = data;
+    }
+
+    public UncrewedSpacecraft(String data, int id, String name, String type, double thrust, double weight, String use, String country, String date) {
+        super(id, name, type, thrust, weight, use, country, date);
+        this.data = data;
+    }
+
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
+    }
+    
+    public void collect(){
+        
+    }
+    
     @Override
     public String toString() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return super.toString()
+			   +"Data : "+data+"\n";        
     }
     
 }

@@ -8,8 +8,18 @@ import controller.Controller;
 import view.WindowFrame;
 
 /**
- *
+ *<h1>Spatial-Station<h1>
+ * Spatial-Station is a program that allows to create, edit and delete spaceships
+ * from inventory, it also allows to filter spaceships according to its type, 
+ * its application or its country.
  * @author afprietoa
+ * @version 1.1
+ * @since 2022
+ */
+
+/**
+ *<h1>App<h1>
+ * App is a class that has the program entry point.
  */
 public class App {
         public static void main(String args[]) {

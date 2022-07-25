@@ -9,10 +9,39 @@ package model;
  * @author afprietoa
  */
 public class LaunchVechicle extends SpaceShip {
+    
+    private int load;
 
+    public LaunchVechicle(int load) {
+        this.load = load;
+    }
+
+    public LaunchVechicle(int load, int id, String name, String type, double thrust, double weight, String use, String country, String date) {
+        super(id, name, type, thrust, weight, use, country, date);
+        this.load = load;
+    }
+
+    public int getLoad() {
+        return load;
+    }
+
+    public void setLoad(int load) {
+        this.load = load;
+    }
+
+    public void load(){
+        
+    }
+    
+    public void unload(){
+        
+    }
+    
     @Override
     public String toString() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return super.toString()
+			   +"Load : "+load+"\n";
+
     }
     
 }

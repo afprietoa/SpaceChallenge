@@ -97,11 +97,26 @@ public class SpaceShip {
     }
     
         
-    public void launch(){}
-    public void land(){}
+    public void launch(){
+        
+    }
+    
+    public void land(){
+    
+    }
 
 
     
     @Override
-    public String toString(){return "";};
+    public String toString(){
+            return "SpaceShip \n"
+			   +"Id : "+id+"\n"
+			   +"Name : "+name+"\n"
+			   +"Type : "+type+"\n"	
+			   +"Thrust : "+thrust+"\n"
+			   +"Weight : "+weight+"\n"
+			   +"Use : "+use+"\n"
+			   +"Country : "+country+"\n"	
+			   +"Date : "+date+"\n";
+    };
 }

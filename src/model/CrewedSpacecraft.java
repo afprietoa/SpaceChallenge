@@ -9,10 +9,34 @@ package model;
  * @author afprietoa
  */
 public class CrewedSpacecraft extends SpaceShip {
+    
+    int noPassenger;
+
+    public CrewedSpacecraft(int noPassenger) {
+        this.noPassenger = noPassenger;
+    }
+
+    public CrewedSpacecraft(int noPassenger, int id, String name, String type, double thrust, double weight, String use, String country, String date) {
+        super(id, name, type, thrust, weight, use, country, date);
+        this.noPassenger = noPassenger;
+    }
+
+    public int getNoPassenger() {
+        return noPassenger;
+    }
+
+    public void setNoPassenger(int noPassenger) {
+        this.noPassenger = noPassenger;
+    }
+    
+    public void airlift(){
+        
+    }
 
     @Override
     public String toString() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+                return super.toString()
+			   +"Passenger number : "+noPassenger+"\n";
     }
     
 }
